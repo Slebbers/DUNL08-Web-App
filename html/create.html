@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<div>
+	<form class="form-inline">
+		<div class="form-group">
+			<label>&nbsp;Equipment Name:&nbsp;</label>
+			<input type="text" class="form-control checklistItem" placeholder="E.g. Forklift">
+		</div>
+	</form>
+	<table class="table table-condensed" id="tblChecklist">
+		<thead>
+			<tr>
+				<th>Number</th>
+				<th>Item</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td><input type="text" class="form-control checklistItem"></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td><input type="text" class="form-control checklistItem"></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td><input type="text" class="form-control checklistItem"></td>
+			</tr>
+		</tbody>
+	</table>
+	<button type="button" class="btn btn-primary" id="btnAddItem">+</button>
+	<button type="button" class="btn btn-danger" id="btnRemoveItem">-</button>
+	<button type="button" class="btn btn-success" id="btnSaveChecklist">Save</button>
+</div>
+</html>
