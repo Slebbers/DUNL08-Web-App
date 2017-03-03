@@ -5,7 +5,7 @@ $(document).ready(function() {
 	$("#createChecklist").click(function(event) {
 		// stops # being added to url
 		event.preventDefault();
-
+		checklistNum = 3;
 		$(".container").empty();
 
 		$(".container")
