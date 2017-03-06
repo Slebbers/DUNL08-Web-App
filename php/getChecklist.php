@@ -1,7 +1,8 @@
 <?php
 	try {
 		// connect to database
-		$db = mysqli_connect("127.0.0.1", "root", "", "checklist");
+		include 'dbConnect.php';
+		
 		$checklist = mysqli_query($db, "SELECT checklist.ChecklistID, checklist.EquipmentID, equipment.EquipmentType, equipment.LastInspection, equipment.NextInspection, equipment.Status FROM checklist INNER JOIN equipment ON checklist.ChecklistID = equipment.ChecklistID");
 		$rows = array();
 

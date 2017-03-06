@@ -2,7 +2,7 @@
 	
 	try {
 		// connect to database
-		$db = mysqli_connect("127.0.0.1", "root", "", "checklist");
+		include 'dbConnect.php';
 
 		 // Checklist data posted from web page
 		$checklistData = $_POST['checklistData'];

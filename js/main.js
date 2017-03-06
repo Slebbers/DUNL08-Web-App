@@ -60,15 +60,25 @@ $(document).ready(function() {
 			console.log("requests completed!");
 
 			$.each(JSON.parse(checklists), function(index, item) {
+				if(item.LastInspection == null) {
+					item.LastInspection = "Not Set";
+				}
+
+				if(item.NextInspection == null) {
+					item.NextInspection = "Not Set";
+				}
+
+				if(item.Status == null) {
+					item.Status = "Not Set"
+				}
+
 				$("#tblView tr:last")
-					.after("<tr> <td>" + item.ChecklistID + "</td>" +
-					   "<td>" + item.EquipmentID + "</td>" +
-					   "<td>" + item.EquipmentType + "</td>" +
-					   "<td>" + item.LastInspection + "</td>" +
-					   "<td>" + item.NextInspection + "</td>" +
-					   "<td><select class='form-control selectbox' id='item" + item.ChecklistID + "'></select></td>" +
-					   "<td>" + item.Status + "</td>" +
-					   "<td> <button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit'></span></button>" +
+					.after("<tr> <td class='col-md-1'>" + item.EquipmentType + "</td>" +
+					   "<td class='col-md-1'>" + item.LastInspection + "</td>" +
+					   "<td class='col-md-1'>" + item.NextInspection + "</td>" +
+					   "<td class='col-md-2'><select class='form-control selectbox' id='item" + item.ChecklistID + "'></select></td>" +
+					   "<td class='col-md-1'>" + item.Status + "</td>" +
+					   "<td class='col-md-1'> <button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit'></span></button>" +
 	   				   "<button type='button' class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-trash'></span></button></td></tr>");
 			});
 

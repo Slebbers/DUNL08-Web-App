@@ -1,7 +1,8 @@
 <?php
 	try {
 		// connect to database
-		$db = mysqli_connect("127.0.0.1", "root", "", "checklist");
+		include 'dbConnect.php';
+		
 		$checklistItems = mysqli_query($db, "SELECT * FROM ChecklistItem");
 		$rows = array();
 
