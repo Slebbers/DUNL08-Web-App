@@ -3,7 +3,8 @@
 		// connect to database
 		include 'dbConnect.php';
 		
-		$checklist = mysqli_query($db, "SELECT checklist.ChecklistID, checklist.EquipmentID, equipment.EquipmentType, equipment.LastInspection, equipment.NextInspection, equipment.Status FROM checklist INNER JOIN equipment ON checklist.ChecklistID = equipment.ChecklistID");
+		$checklist = mysqli_query($db, "SELECT Checklist.ChecklistID, Checklist.ChecklistType, Equipment.EquipmentName, Equipment.LastInspection, Equipment.NextInspection, Equipment.Status FROM Checklist INNER JOIN Equipment ON Checklist.ChecklistID = Equipment.ChecklistID");
+
 		$rows = array();
 
 		while($data = mysqli_fetch_assoc($checklist)) {

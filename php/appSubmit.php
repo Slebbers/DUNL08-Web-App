@@ -9,9 +9,10 @@
 		$size = count($array['ChecklistItems']);
 
 		for($i = 0; $i < $size; $i++) {
-			$query = "UPDATE ChecklistItem SET IsChecked = " . $array['ChecklistItems'][$i]['IsChecked'] . " WHERE ChecklistID = " 
-				. $array['ChecklistID'] . " AND ChecklistItem = '" . $array['ChecklistItems'][$i]['ChecklistItem'] . "'";
+			//$query = "UPDATE EquipmentItem SET IsChecked = " . $array['ChecklistItems'][$i]['IsChecked'] . " WHERE ChecklistID = " 
+		//		. $array['ChecklistID'] . " AND ChecklistItem = '" . $array['ChecklistItems'][$i]['ChecklistItem'] . "'";
 
+			$query = "UPDATE EquipmentItem SET IsChecked = " . $array['ChecklistItems'][$i]['IsChecked'] . " WHERE ChecklistItemID = " . $array['ChecklistItems'][$i]['ChecklistItemID'];
 			mysqli_query($db, $query);
 		}
 

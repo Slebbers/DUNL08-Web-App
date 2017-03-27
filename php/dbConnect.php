@@ -1,3 +1,3 @@
 <?php
-	$db = mysqli_connect("127.0.0.1", "root", "", "checklist");
+	$db = mysqli_connect("devweb2015.cis.strath.ac.uk", "isb14166", "die0aeTeiqu5", "isb14166");
 ?>

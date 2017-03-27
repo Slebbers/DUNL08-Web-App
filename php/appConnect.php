@@ -3,8 +3,14 @@
 		// connect to database
 		include 'dbConnect.php';
 
-		$query = "SELECT Checklist.ChecklistID, Checklist.EquipmentID, ChecklistItem.ChecklistItemID, ChecklistItem.ChecklistItem, ChecklistItem.IsChecked, Equipment.EquipmentID, Equipment.EquipmentType,	Equipment.LastInspection, Equipment.NextInspection, Equipment.Status FROM checklist INNER JOIN ChecklistItem ON Checklist.ChecklistID = ChecklistItem.ChecklistID INNER JOIN Equipment ON Checklist.ChecklistID = Equipment.ChecklistID";
+		$query = "SELECT Checklist.ChecklistID, ChecklistItem.ChecklistItemID, ChecklistItem.ChecklistItem, Equipment.EquipmentID, Equipment.EquipmentName, Equipment.LastInspection, Equipment.NextInspection, Equipment.Status, EquipmentItem.IsChecked
+				FROM Checklist
+				INNER JOIN ChecklistItem ON Checklist.ChecklistID = ChecklistItem.ChecklistID
+				INNER JOIN Equipment ON ChecklistItem.ChecklistID = Equipment.ChecklistID
+				INNER JOIN EquipmentItem ON ChecklistItem.ChecklistItemID = EquipmentItem.ChecklistItemID";
 		$checklist = mysqli_query($db, $query);
+		
+		
 		$rows = array();
 
 		while($data = mysqli_fetch_assoc($checklist)) {
@@ -24,7 +30,7 @@
 				$jsonItem = new stdClass();
 				$jsonItem->ChecklistID = $row->ChecklistID;
 				$jsonItem->EquipmentID = $row->EquipmentID;
-				$jsonItem->EquipmentType = $row->EquipmentType;
+				$jsonItem->EquipmentName = $row->EquipmentName;
 				$jsonItem->LastInspection = $row->LastInspection;
 				$jsonItem->NextInspection = $row->NextInspection;
 				$jsonItem->Status = $row->Status;
